@@ -2,7 +2,7 @@
 //  Destination.swift
 //  NavigationsCatatog
 //
-//  Created by Josep on 22/9/25.
+//  Created by Josep Cerdá Penadés on 22/9/25.
 //
 
 import Foundation
