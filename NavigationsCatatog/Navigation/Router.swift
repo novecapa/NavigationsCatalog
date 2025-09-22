@@ -7,11 +7,12 @@
 
 import Foundation
 
-final class Router: ObservableObject {
+@Observable
+final class Router {
 
-    @Published var pushDestinations: [PushDestinations] = []
-    @Published var sheetDestination: SheetDestinations?
-    @Published var fullScreenDestination: FullScreenDestinations?
+    var pushDestinations: [PushDestinations] = []
+    var sheetDestination: SheetDestinations?
+    var fullScreenDestination: FullScreenDestinations?
 
     private func resetContent() {
         pushDestinations = []
@@ -24,6 +25,29 @@ final class Router: ObservableObject {
 
 extension Router {
     func navigate(to destination: Destination) {
-        
+        switch destination {
+        case .push(let pushDestination):
+            push(pushDestination)
+        case .sheet(let sheetDestination):
+            presentSheet(sheetDestination)
+        case .fullScreen(let fullScreenDestination):
+            presentFullScreen(fullScreenDestination)
+        }
+    }
+}
+
+// MARK: Navigation methods
+
+extension Router {
+    func push(_ destination: PushDestinations) {
+        pushDestinations.append(destination)
+    }
+
+    func presentSheet(_ destination: SheetDestinations) {
+        sheetDestination = destination
+    }
+
+    func presentFullScreen(_ destination: FullScreenDestinations) {
+        fullScreenDestination = destination
     }
 }
