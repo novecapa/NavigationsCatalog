@@ -7,6 +7,23 @@
 
 import Foundation
 
-final class Router: Observable {
-    
+final class Router: ObservableObject {
+
+    @Published var pushDestinations: [PushDestinations] = []
+    @Published var sheetDestination: SheetDestinations?
+    @Published var fullScreenDestination: FullScreenDestinations?
+
+    private func resetContent() {
+        pushDestinations = []
+        sheetDestination = nil
+        fullScreenDestination = nil
+    }
+}
+
+// MARK: Navigation
+
+extension Router {
+    func navigate(to destination: Destination) {
+        
+    }
 }
