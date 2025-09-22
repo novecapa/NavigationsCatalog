@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NavigationsCatatog<Content: View>: View {
+struct NavigationAction<Content: View>: View {
 
     let destination: Destination
     @ViewBuilder var content: () -> Content
@@ -40,9 +40,7 @@ struct NavigationsCatatog<Content: View>: View {
     }
 
     public var body: some View {
-        Button {
-            router.navigate(to: destination)
-        } label: {
+        Button(action: { router.navigate(to: destination) }) {
             content()
         }
     }
