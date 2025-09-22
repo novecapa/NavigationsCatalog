@@ -5,12 +5,21 @@
 //  Created by Josep Cerdá Penadés on 22/9/25.
 //
 
-import Foundation
+import SwiftUI
 
-enum TabDestinations: Identifiable {
+enum TabDestinations {
+    case tab(view: AnyView)
+}
+
+extension TabDestinations: Identifiable, Hashable {
     var id: UUID { UUID() }
 
-    case tab1
-    case tab2
-    case tab3
+    static func == (lhs: TabDestinations,
+                    rhs: TabDestinations) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

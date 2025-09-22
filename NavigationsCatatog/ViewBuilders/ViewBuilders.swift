@@ -20,15 +20,13 @@ final class ViewBuilders {
     func view(for destination: SheetDestinations) -> some View {
         Group {
             switch destination {
-            case .sheet1:
-                Text("sheet1")
-            case .sheet2:
-                Text("sheet2")
+            case .sheet(let view, let detents):
+                view
+                    .presentationDetents(detents)
             }
         }
         .navigationBarTitleDisplayMode(.inline)
         .addDismissButton()
-        .presentationDetents([.medium, .large])
         .presentationBackground(.regularMaterial)
     }
 
@@ -36,10 +34,8 @@ final class ViewBuilders {
     func view(for destination: FullScreenDestinations) -> some View {
         Group {
             switch destination {
-            case .fullScreen1:
-                Text("fullScreen1")
-            case .fullScreen2:
-                Text("fullScreen2")
+            case .fullScreen(let view):
+                view
             }
         }
         .addDismissButton()

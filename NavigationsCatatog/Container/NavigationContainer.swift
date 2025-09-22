@@ -52,7 +52,8 @@ private struct InnerContainer<Content: View>: View {
     }
 
     @ViewBuilder
-    func navigationView(for destination: SheetDestinations, from router: Router) -> some View {
+    func navigationView(for destination: SheetDestinations,
+                        from router: Router) -> some View {
         NavigationContainer(parentRouter: router) {
             ViewBuilders().view(for: destination)
         }

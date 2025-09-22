@@ -5,11 +5,21 @@
 //  Created by Josep Cerdá Penadés on 22/9/25.
 //
 
-import Foundation
+import SwiftUI
 
-enum FullScreenDestinations: Identifiable{
+enum FullScreenDestinations {
+    case fullScreen(view: AnyView)
+}
+
+extension FullScreenDestinations: Identifiable {
     var id: UUID { UUID() }
 
-    case fullScreen1
-    case fullScreen2
+    static func == (lhs: FullScreenDestinations,
+                    rhs: FullScreenDestinations) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
