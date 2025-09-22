@@ -10,12 +10,13 @@ import SwiftUI
 @main
 struct NavigationsCatatogApp: App {
     
-    @State private var router = Router()
+    @State private var router = Router(level: 0, identifierTab: nil)
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(router)
+            NavigationContainer(parentRouter: router) {
+                ContentView()
+            }
         }
     }
 }

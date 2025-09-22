@@ -1,5 +1,5 @@
 //
-//  FullScreenDestinations.swift
+//  TabDestinations.swift
 //  NavigationsCatatog
 //
 //  Created by Josep Cerdá Penadés on 22/9/25.
@@ -7,9 +7,10 @@
 
 import Foundation
 
-enum FullScreenDestinations: Identifiable{
+enum TabDestinations: Identifiable {
     var id: UUID { UUID() }
 
-    case fullScreen1
-    case fullScreen2
+    case tab1
+    case tab2
+    case tab3
 }

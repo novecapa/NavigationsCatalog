@@ -5,9 +5,21 @@
 //  Created by Josep Cerdá Penadés on 22/9/25.
 //
 
-import Foundation
+import SwiftUI
 
-enum PushDestinations: Hashable {
-    case push1
-    case push2
+enum PushDestinations {
+    case push(view: AnyView)
+}
+
+extension PushDestinations: Identifiable, Hashable {
+    var id: UUID { UUID() }
+
+    static func == (lhs: PushDestinations,
+                    rhs: PushDestinations) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }

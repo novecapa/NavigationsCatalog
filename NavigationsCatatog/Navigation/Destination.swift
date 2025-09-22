@@ -7,7 +7,10 @@
 
 import Foundation
 
-enum Destination: Hashable {
+enum Destination: Identifiable {
+    var id: UUID { UUID() }
+    
+    case tab(TabDestinations)
     case push(PushDestinations)
     case sheet(SheetDestinations)
     case fullScreen(FullScreenDestinations)

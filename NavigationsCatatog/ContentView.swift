@@ -10,12 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-            NavigationAction(push: .push1) {
-                DetailView()
+            NavigationAction(fullScreen: .fullScreen1) {
+                Text("full Screen 1")
+            }
+            NavigationAction(sheet: .sheet1) {
+                Text("sheet 1")
+            }
+            NavigationAction(push: .push(view: Text("My push 1").toAnyView)) {
+                Text("push 1")
             }
         }
         .padding()

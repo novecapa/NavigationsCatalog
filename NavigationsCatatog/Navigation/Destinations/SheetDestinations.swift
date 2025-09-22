@@ -7,7 +7,9 @@
 
 import Foundation
 
-enum SheetDestinations: Hashable {
+enum SheetDestinations: Identifiable  {
+    var id: UUID { UUID() }
+
     case sheet1
     case sheet2
 }

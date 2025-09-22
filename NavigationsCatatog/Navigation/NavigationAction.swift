@@ -40,7 +40,9 @@ struct NavigationAction<Content: View>: View {
     }
 
     public var body: some View {
-        Button(action: { router.navigate(to: destination) }) {
+        Button {
+            router.navigate(to: destination)
+        } label: {
             content()
         }
     }
