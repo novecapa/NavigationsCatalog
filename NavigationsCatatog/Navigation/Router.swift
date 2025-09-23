@@ -103,4 +103,9 @@ extension Router {
     func presentFullScreen(_ destination: FullScreenDestinations) {
         fullScreenDestination = destination
     }
+
+    func deepLinkOpen(to destination: Destination) {
+        guard isActive else { return }
+        navigate(to: destination)
+    }
 }

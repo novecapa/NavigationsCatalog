@@ -28,6 +28,13 @@ struct NavigationContainer<Content: View>: View {
         .environment(router)
         .onAppear(perform: router.setActive)
         .onDisappear(perform: router.resignActive)
+        .onOpenURL(perform: openDeepLinkIfFound(for:))
+    }
+
+    func openDeepLinkIfFound(for url: URL) {
+        if let destination = DeepLink.destination(from: url) {
+            router.deepLinkOpen(to: destination)
+        }
     }
 }
 
