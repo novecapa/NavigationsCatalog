@@ -27,7 +27,7 @@ struct ContentView: View {
 struct MyPushView: View {
 
     let name: String
-    
+
     var body: some View {
         VStack {
             Text(name)
@@ -39,5 +39,9 @@ struct MyPushView: View {
 }
 
 #Preview {
-    ContentView()
+    NavigationContainer(
+        parentRouter: Router(level: 0, identifierTab: nil)
+    ) {
+        ContentView()
+    }
 }
