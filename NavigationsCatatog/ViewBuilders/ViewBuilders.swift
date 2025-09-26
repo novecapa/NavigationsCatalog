@@ -13,7 +13,7 @@ final class ViewBuilders {
         switch destination {
         case .push(let view):
             view
-                .addBackButton(title: "<- Back <-")
+                .addBackButton()
         }
     }
 

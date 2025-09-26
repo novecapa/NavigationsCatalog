@@ -40,7 +40,7 @@ struct NavigationContainer<Content: View>: View {
 
 private struct InnerContainer<Content: View>: View {
 
-    @Bindable var router: Router
+    @State var router: Router
     @ViewBuilder var content: () -> Content
 
     var body: some View {

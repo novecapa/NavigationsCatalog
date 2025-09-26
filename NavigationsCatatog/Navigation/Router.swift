@@ -11,7 +11,7 @@ import SwiftUI
 @Observable
 final class Router {
 
-    let id = UUID()
+    let id: UUID = UUID()
     let level: Int
 
     let identifierTab: TabDestinations?
@@ -68,7 +68,7 @@ extension Router {
 extension Router {
     func navigate(to destination: Destination) {
         switch destination {
-        case let .tab(tab):
+        case .tab(let tab):
             select(tab: tab)
         case .push(let pushDestination):
             push(pushDestination)

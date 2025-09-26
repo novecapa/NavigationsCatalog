@@ -44,7 +44,7 @@ public struct BackButtonModifier: ViewModifier {
 
 public extension View {
     func addBackButton(title: String = "Back",
-                       systemImage: String? = nil) -> some View {
+                       systemImage: String? = "arrowshape.backward.circle") -> some View {
         modifier(
             BackButtonModifier(
                 title: title,
